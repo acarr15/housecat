@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.sites',
     'django.contrib.staticfiles',
     'crispy_forms',
 ]
@@ -150,4 +149,6 @@ LOGIN_REDIRECT_URL = '/'
 # From Templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# Activate Django-Heroku.
 django_heroku.settings(locals())
+SITE_ID=1
