@@ -1,0 +1,34 @@
+{% extends "db_app/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block style %}
+
+<style type="text/css">
+	.absolute-center{
+		margin: auto;
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+	}
+	.absolute-center.is-responsive{
+		height: 40%;
+	}
+</style>
+
+{% endblock style %}
+{% block content %}
+
+<div class="container">
+	<div class="container absolute-center is-responsive text-center">
+		<h2>
+			Brought to you by
+		</h2>
+	    <div>
+	        <a href="results/">
+	        	<img class="" src="{% static 'db_app/full.jpg' %}">
+	        </a>
+	    </div>
+	</div>
+</div>
+
+{% endblock content %}
+

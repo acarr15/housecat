@@ -1,0 +1,21 @@
+{% extends "db_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+	<div>
+		<h3>{{ edit.name }}: {{ edit.status }}</h3>
+		<p>Hometown: {{ edit.hometown }}</p>
+		<p>{{ edit.email }}</p>
+	</div>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		{% if edit.status.id == 3 %}
+		<br>
+		<a class="btn btn-danger" href="{% url 'remove_artist' pk=edit.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+		{% endif %}
+		<button type="submit" class="btn btn-success">Save Changes</button>
+		<a class="btn btn-secondary" href="{% url 'secure_default' %}">Cancel</a>
+	</form>
+
+{% endblock content %}

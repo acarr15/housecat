@@ -1,0 +1,15 @@
+{% extends "db_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>New Artist</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ artist_form|crispy }}
+		<p>Link to all your online social accounts!</p>
+		{{ media_form|crispy }}
+		{{ tags_form|crispy }}
+		<button type="submit" class="btn btn-success">Submit</button>
+	</form>
+
+{% endblock content %}

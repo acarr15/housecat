@@ -1,0 +1,14 @@
+{% extends "db_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+	<h2>Add Region</h2>
+
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button type="submit" class="btn btn-success">Save Changes</button>
+		<a class="btn btn-secondary" href="{% url 'secure_default' %}">Cancel</a>
+	</form>
+
+{% endblock content %}
