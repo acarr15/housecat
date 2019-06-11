@@ -28,7 +28,7 @@ class artist(models.Model):
 	region_id = models.ForeignKey(region, on_delete=models.SET_NULL, null=True)
 	hometown = models.CharField(max_length=50)
 	email = models.EmailField()
-	status = models.ForeignKey(status, on_delete=models.SET_DEFAULT, default=1)
+	status = models.ForeignKey(status, on_delete=models.SET_DEFAULT, default=2)
 
 	def __str__(self):
 		return "%s, %s" % (self.name, self.hometown)
