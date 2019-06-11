@@ -37,7 +37,10 @@ def search(request):
 	return render(request, "db_app/search.html", {"form":form})
 
 def results(request):
-	approved = status.objects.get(id=APPROVED)
+	try:
+		approved = status.objects.get(id=APPROVED)
+	except status.DoesotExist:
+		approved = None
 	artists = artist.objects.filter(status=approved)
 	return render(request, "db_app/results.html", {"artists": artists})
 
