@@ -83,8 +83,7 @@ def add_region(request):
 	if request.method == "POST":
 		form = RegionForm(request.POST)
 		if form.is_valid():
-			new_tag = tag(tag=request.POST.tag)
-			new_tag.save()
+			form.save()
 			return redirect("secure_default")
 	else:
 		form = RegionForm()
