@@ -37,8 +37,9 @@ def search(request):
 	return render(request, "db_app/search.html", {"form":form})
 
 def results(request):
-	approved = status.objects.get(id=APPROVED)
-	artists = artist.objects.filter(status=approved)
+	# approved = status.objects.get(id=APPROVED)
+	# artists = artist.objects.filter(status=approved)
+	artists = artist.objects.all()
 	return render(request, "db_app/results.html", {"artists": artists})
 
 @login_required
