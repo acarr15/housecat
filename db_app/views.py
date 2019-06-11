@@ -4,7 +4,7 @@ from .models import artist, artist_tag, tag, status, region
 from .forms import ArtistForm, MediaForm, TagsForm, EditForm, TagForm, RegionForm, SearchForm
 from django.contrib.auth.decorators import login_required
 
-PENDING, APPROVED, DENIED = 1, 2, 3
+APPROVED, PENDING, DENIED = 1, 2, 3
 
 def index(request):
 	return render(request, "db_app/index.html", {})
@@ -37,9 +37,8 @@ def search(request):
 	return render(request, "db_app/search.html", {"form":form})
 
 def results(request):
-	# approved = status.objects.get(id=APPROVED)
-	# artists = artist.objects.filter(status=approved)
-	artists = artist.objects.all()
+	approved = status.objects.get(id=APPROVED)
+	artists = artist.objects.filter(status=approved)
 	return render(request, "db_app/results.html", {"artists": artists})
 
 @login_required
