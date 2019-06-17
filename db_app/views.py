@@ -29,16 +29,12 @@ def search(request):
 			if name:
 				artistData = artistData.filter(artist__name__icontains=name)
 
-			# print(artists)	
-
 			return render(request, "db_app/results.html", {"artistData": artistData})
 	else:
 		form = SearchForm()
 	return render(request, "db_app/search.html", {"form":form})
 
 def results(request):
-	# approved = status.objects.get(id=APPROVED)
-	# artists = artist.objects.filter(status=approved)
 	artistData = media.objects.select_related('artist').filter(artist__status=APPROVED)
 	return render(request, "db_app/results.html", {"artistData": artistData})
 
@@ -105,7 +101,7 @@ def submission(request):
 				new_entry = artist_tag(artist=artist, tag=tag.objects.get(id=value))
 				new_entry.save()
 
-			return HttpResponse("Thanks!")
+			return render(request, "db_app/thanks.html", {})
 	else:
 		artist_form, media_form, tags_form = ArtistForm(), MediaForm(), TagsForm()
 	return render(request, "db_app/submission.html", {"artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
