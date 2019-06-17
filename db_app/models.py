@@ -8,7 +8,7 @@ class region(models.Model):
 		return self.region
 
 class tag(models.Model):
-	tag = models.CharField(max_length=20)
+	tag = models.CharField(max_length=30)
 
 	def __str__(self):
 		return self.tag
