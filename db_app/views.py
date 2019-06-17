@@ -20,27 +20,27 @@ def search(request):
 			# Name Value
 			name = request.GET.get("name")
 
-			artists = artist.objects.filter(status=status.objects.get(id=APPROVED))
+			artistData = media.objects.select_related('artist').filter(artist__status=status.objects.get(id=APPROVED))
 			if regions:
-				artists = artists.filter(region_id__in=list(region.objects.filter(pk__in=regions)))
+				artistData = artistData.filter(artist__region_id__in=list(region.objects.filter(pk__in=regions)))
 			if tags:
 				artist_tags = artist_tag.objects.values_list("artist", flat=True).filter(tag__in=list(tag.objects.filter(pk__in=tags)))
-				artists = artists.filter(pk__in=list(set(artist_tags)))
+				artistData = artistData.filter(artist__id__in=list(set(artist_tags)))
 			if name:
-				artists = artists.filter(name__icontains=name)
+				artistData = artistData.filter(artist__name__icontains=name)
 
-			print(artists)	
+			# print(artists)	
 
-			return render(request, "db_app/results.html", {"artists": artists})
+			return render(request, "db_app/results.html", {"artistData": artistData})
 	else:
 		form = SearchForm()
 	return render(request, "db_app/search.html", {"form":form})
 
 def results(request):
-	approved = status.objects.get(id=APPROVED)
-	artists = artist.objects.filter(status=approved)
+	# approved = status.objects.get(id=APPROVED)
+	# artists = artist.objects.filter(status=approved)
 	artistData = media.objects.select_related('artist').filter(artist__status=APPROVED)
-	return render(request, "db_app/results.html", {"artists": artists, "artistData": artistData})
+	return render(request, "db_app/results.html", {"artistData": artistData})
 
 @login_required
 def secure(request, value=PENDING):
