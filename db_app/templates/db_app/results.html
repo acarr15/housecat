@@ -16,7 +16,14 @@
 	<br>
 	{% for artist in artistData %}
 	<div class="container">
-		<h3><a target="_blank" href="{{ artist.website }}">{{ artist.artist.name }}</a> -- {{ artist.artist.hometown }}, {{ artist.artist.region_id }}</h3>
+		<h3>
+			{% if artist.website %}
+			<a target="_blank" href="{{ artist.website }}">{{ artist.artist.name }}</a> 
+			}
+			{% else %}
+			{{ artist.artist.name }}
+			{% endif %}
+		-- {{ artist.artist.hometown }}, {{ artist.artist.region_id }}</h3>
 		<div class="container">
 			<p>{{ artist.artist.email }}</p>
 		</div>
@@ -28,11 +35,21 @@
 		{% if artist.instagram %}
 		<li><a target="_blank" href="{{ artist.instagram }}"><img src="{% static 'db_app/instagram.png' %}" height="30" width="30"></a></li>
 		{% endif %}
-		<li><a target="_blank" href=""><img src="{% static 'db_app/tumblr.png' %}" height="30" width="30"></a></li>
-		<li><a target="_blank" href=""><img src="{% static 'db_app/soundcloud.png' %}" height="30" width="30"></a></li>
-		<li><a target="_blank" href=""><img src="{% static 'db_app/twitter.png' %}" height="30" width="30"></a></li>
-		<li><a target="_blank" href=""><img src="{% static 'db_app/patreon.png' %}" height="30" width="30"></a></li>
-		<li><a target="_blank" href=""><img src="{% static 'db_app/bandcamp.png' %}" height="30" width="30"></a></li>
+		{% if artist.tumblr %}
+		<li><a target="_blank" href="{{ artist.tumblr }}"><img src="{% static 'db_app/tumblr.png' %}" height="30" width="30"></a></li>
+		{% endif %}
+		{% if artist.soundcloud %}
+		<li><a target="_blank" href="{{ artist.soundcloud }}"><img src="{% static 'db_app/soundcloud.png' %}" height="30" width="30"></a></li>
+		{% endif %}
+		{% if artist.twitter %}
+		<li><a target="_blank" href="{{ artist.twitter }}"><img src="{% static 'db_app/twitter.png' %}" height="30" width="30"></a></li>
+		{% endif %}
+		{% if artist.patreon %}
+		<li><a target="_blank" href="{{ artist.patreon }}"><img src="{% static 'db_app/patreon.png' %}" height="30" width="30"></a></li>
+		{% endif %}
+		{% if artist.bandcamp %}
+		<li><a target="_blank" href="{{ artist.bandcamp }}"><img src="{% static 'db_app/bandcamp.png' %}" height="30" width="30"></a></li>
+		{% endif %}
 	</ul>
 	<hr>
 	{% endfor %}
