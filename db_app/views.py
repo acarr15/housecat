@@ -39,8 +39,8 @@ def search(request):
 def results(request):
 	approved = status.objects.get(id=APPROVED)
 	artists = artist.objects.filter(status=approved)
-	artistData = media.objects.select_related(artist).filter(artist__status=APPROVED)
-	return render(request, "db_app/results.html", {"artists": artists})
+	artistData = media.objects.select_related('artist').filter(artist__status=APPROVED)
+	return render(request, "db_app/results.html", {"artists": artists, "artistData": artistData})
 
 @login_required
 def secure(request, value=PENDING):
