@@ -38,7 +38,7 @@ def search(request):
 
 def results(request):
 	approved = status.objects.get(id=APPROVED)
-	artists = artist.objects.filter(status=approved)
+	artists = artist.objects.filter(status=approved).select_related('media')
 	return render(request, "db_app/results.html", {"artists": artists})
 
 @login_required
