@@ -16,9 +16,9 @@
 	<br>
 	{% for artist in artistData %}
 	<div class="container">
-		<h3><a target="_blank" href="{{ artist.website }}">{{ artist.name }}</a> -- {{ artist.hometown }}, {{ artist.region_id }}</h3>
+		<h3><a target="_blank" href="{{ artist.website }}">{{ artist.artist.name }}</a> -- {{ artist.artist.hometown }}, {{ artist.artist.region_id }}</h3>
 		<div class="container">
-			<p>{{ artist.email }}</p>
+			<p>{{ artist.artist.email }}</p>
 		</div>
 	</div>
 	<ul>
