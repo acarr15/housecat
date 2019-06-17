@@ -14,16 +14,16 @@
 	
 	<h1>Artists View</h1>
 	<br>
-	{% for artist in artists %}
+	{% for artist in artistData %}
 	<div class="container">
-		<h3><a target="_blank" href="#">{{ artist.name }}</a> -- {{ artist.hometown }}, {{ artist.region_id }}</h3>
+		<h3><a target="_blank" href="{{ artist.website }}">{{ artist.name }}</a> -- {{ artist.hometown }}, {{ artist.region_id }}</h3>
 		<div class="container">
 			<p>{{ artist.email }}</p>
 		</div>
 	</div>
 	<ul>
-		<li><a target="_blank" href=""><img src="{% static 'db_app/facebook.png' %}" height="30" width="30"></a></li>
-		<li><a target="_blank" href=""><img src="{% static 'db_app/instagram.png' %}" height="30" width="30"></a></li>
+		<li><a target="_blank" href="{{ artist.facebook }}"><img src="{% static 'db_app/facebook.png' %}" height="30" width="30"></a></li>
+		<li><a target="_blank" href="{{ artist.instagram }}"><img src="{% static 'db_app/instagram.png' %}" height="30" width="30"></a></li>
 		<li><a target="_blank" href=""><img src="{% static 'db_app/tumblr.png' %}" height="30" width="30"></a></li>
 		<li><a target="_blank" href=""><img src="{% static 'db_app/soundcloud.png' %}" height="30" width="30"></a></li>
 		<li><a target="_blank" href=""><img src="{% static 'db_app/twitter.png' %}" height="30" width="30"></a></li>
