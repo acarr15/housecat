@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import artist, artist_tag, tag, status, region
+from .models import artist, artist_tag, tag, status, region, media
 from .forms import ArtistForm, MediaForm, TagsForm, EditForm, TagForm, RegionForm, SearchForm
 from django.contrib.auth.decorators import login_required
 
@@ -38,7 +38,8 @@ def search(request):
 
 def results(request):
 	approved = status.objects.get(id=APPROVED)
-	artists = artist.objects.filter(status=approved).select_related('media')
+	artists = artist.objects.filter(status=approved)
+	artistData = media.objects.select_related(artist).filter(artist__status=APPROVED)
 	return render(request, "db_app/results.html", {"artists": artists})
 
 @login_required
