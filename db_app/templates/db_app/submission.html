@@ -11,9 +11,13 @@
 	<form class="needs-validation" method="POST">
 		{% csrf_token %}
 		<!-- {{ artist_form|crispy }} -->
-		<div class="form-row container">
-			{{ artist_form.name|as_crispy_field }}
-			{{ artist_form.email|as_crispy_field }}
+		<div class="form-row">
+			<div class="col">
+				{{ artist_form.name|as_crispy_field }}
+			</div>
+			<div class="col">
+				{{ artist_form.email|as_crispy_field }}
+			</div>
 		</div>
 		<div class="form-row">
 			{{ artist_form.hometown|as_crispy_field }}
