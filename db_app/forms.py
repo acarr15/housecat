@@ -18,6 +18,10 @@ class MediaForm(forms.ModelForm):
 
 class TagsForm(forms.Form):
 	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
+	
+	def __init__(self, *args, **kwargs):
+		super(TagsForm, self).__init__(*args, **kwargs)
+		self.fields['tags'].widget = forms.HiddenInput()
 
 class EditForm(forms.ModelForm):
 	class Meta:

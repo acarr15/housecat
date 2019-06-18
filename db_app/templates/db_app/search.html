@@ -3,7 +3,7 @@
 {% block content %}
 
 	<h2>Search</h2>
-	<form method="GET" target="_blank">
+	<form method="GET" target="_blank" class="needs-validation" novalidate>
 		{% csrf_token %}
 		{{ form|crispy }}
 		<button type="submit" name="submit" class="btn btn-success">Search</button>
