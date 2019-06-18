@@ -13,9 +13,7 @@
 		<div class="form-row">
 			<div class="col">
 				{{ artist_form.name|as_crispy_field }}
-			</div>
-			<div class="col">
-				{{ artist_form.email|as_crispy_field }}
+				<div class="invalid-feedback">Please enter a name.</div>
 			</div>
 		</div>
 		<div class="form-row">
@@ -27,6 +25,9 @@
 			</div>
 		</div>
 		<div class="form-row">
+			<div class="col">
+				{{ artist_form.email|as_crispy_field }}
+			</div>
 			<div class="col">
 				{{ artist_form.genre|as_crispy_field }}
 			</div>
