@@ -10,7 +10,8 @@
 
 	<form method="POST">
 		{% csrf_token %}
-		{{ artist_form|crispy }}
+		<!-- {{ artist_form|crispy }} -->
+		{{ artist_form.name|as_crispy_field }}
 		<p>Link to all your online social accounts!</p>
 		{{ media_form|crispy }}
 		<!-- {{ tags_form|crispy }} -->
