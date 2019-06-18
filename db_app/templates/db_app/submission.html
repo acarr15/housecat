@@ -2,10 +2,6 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<script type="text/javascript">
-	
-</script>
-
 <h1>New Artist</h1>
 
 	<form class="needs-validation" method="POST" novalidate>
@@ -71,5 +67,11 @@
 		</div>
 		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+    		$('.js-example-basic-multiple').select2();
+		});
+	</script>
 
 {% endblock content %}
