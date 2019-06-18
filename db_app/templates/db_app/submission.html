@@ -8,10 +8,10 @@
 
 <h1>New Artist</h1>
 
-	<form method="POST">
+	<form class="needs-validation" method="POST">
 		{% csrf_token %}
 		<!-- {{ artist_form|crispy }} -->
-		<div class="form-row form-group">
+		<div class="form-group">
 			{{ artist_form.name|as_crispy_field }}
 			{{ artist_form.email|as_crispy_field }}
 		</div>
