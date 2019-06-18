@@ -2,7 +2,12 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<script type="text/javascript">
+	
+</script>
+
 <h1>New Artist</h1>
+
 	<form method="POST">
 		{% csrf_token %}
 		{{ artist_form|crispy }}
