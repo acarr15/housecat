@@ -10,7 +10,6 @@
 
 	<form class="needs-validation" method="POST">
 		{% csrf_token %}
-		<!-- {{ artist_form|crispy }} -->
 		<div class="form-row">
 			<div class="col">
 				{{ artist_form.name|as_crispy_field }}
@@ -20,16 +19,48 @@
 			</div>
 		</div>
 		<div class="form-row">
-			{{ artist_form.hometown|as_crispy_field }}
-			{{ artist_form.region_id|as_crispy_field }}
+			<div class="col">
+				{{ artist_form.hometown|as_crispy_field }}
+			</div>
+			<div class="col">
+				{{ artist_form.region_id|as_crispy_field }}
+			</div>
 		</div>
 		<div class="form-row">
-			{{ artist_form.genre|as_crispy_field }}
+			<div class="col">
+				{{ artist_form.genre|as_crispy_field }}
+			</div>
 		</div>
 		<p>Link to all your online social accounts!</p>
-		{{ media_form|crispy }}
-		<!-- {{ tags_form|crispy }} -->
-		{{ tags_form.tags|as_crispy_field }}
+		<div class="form-row">
+			<div class="col">
+				{{ media_form.website|as_crispy_field }}
+				{{ media_form.facebook|as_crispy_field }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col">
+				{{ media_form.instagram|as_crispy_field }}
+				{{ media_form.twitter|as_crispy_field }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col">
+				{{ media_form.soundcloud|as_crispy_field }}
+				{{ media_form.bandcamp|as_crispy_field }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col">
+				{{ media_form.tumblr|as_crispy_field }}
+				{{ media_form.patreon|as_crispy_field }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col">
+				{{ tags_form.tags|as_crispy_field }}
+			</div>
+		</div>
 		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
 
