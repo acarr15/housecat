@@ -13,7 +13,8 @@
 		{{ artist_form|crispy }}
 		<p>Link to all your online social accounts!</p>
 		{{ media_form|crispy }}
-		{{ tags_form|crispy }}
+		<!-- {{ tags_form|crispy }} -->
+		{{ tags_form.tags|as_crispy_field }}
 		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
 
