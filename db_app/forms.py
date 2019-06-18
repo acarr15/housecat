@@ -1,6 +1,5 @@
 from django import forms
 from .models import artist, media, tag, region
-from django.contrib.admin.widgets import FilteredSelectMultiple
 
 class ArtistForm(forms.ModelForm):
 	class Meta:
@@ -18,14 +17,11 @@ class MediaForm(forms.ModelForm):
 			self.fields[key].required = False
 
 class TagsForm(forms.Form):
-	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False, widget=FilteredSelectMultiple(_('tags'), True))
-	
-	class Media:
-        css = {'all': ('/static/admin/css/widgets.css', '/static/css/widgets.css',)}
-        js = ['/admin/jsi18n/']
-	# def __init__(self, *args, **kwargs):
-	# 	super(TagsForm, self).__init__(*args, **kwargs)
-	# 	self.fields['tags'].widget = forms.HiddenInput()
+	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
+
+	def __init__(self, *args, **kwargs):
+		super(TagsForm, self).__init__(*args, **kwargs)
+		self.fields['tags'].widget.attrs['class'] = 'js-example-basic-multiple'
 
 class EditForm(forms.ModelForm):
 	class Meta:
