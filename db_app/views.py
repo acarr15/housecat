@@ -104,7 +104,8 @@ def submission(request):
 			return render(request, "db_app/thanks.html", {})
 	else:
 		artist_form, media_form, tags_form = ArtistForm(), MediaForm(), TagsForm()
-	return render(request, "db_app/submission.html", {"artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
+	# return render(request, "db_app/submission.html", {"artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
 
+	return render(request, "db_app/form.html", {"artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
 
 
