@@ -14,4 +14,5 @@ urlpatterns = [
 	path('secure/<int:value>/', views.secure, name="secure"),
 	path('add_tag/', views.add_tag, name="add_tag"),
 	path('add_region', views.add_region, name="add_region"),
+	url(r'^select2/', include('django_select2.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
