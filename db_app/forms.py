@@ -19,12 +19,12 @@ class MediaForm(forms.ModelForm):
 			self.fields[key].required = False
 
 class TagsForm(forms.Form):
-	# tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
-	tags = forms.ModelMultipleChoiceField(
-		queryset=tag.objects.all(), 
-		required=False, 
-		widget=ModelSelect2MultipleWidget(model=tag, queryset=tag.objects.all(), search_fields=['title__icontains'])
-	)
+	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
+	# tags = forms.ModelMultipleChoiceField(
+	# 	queryset=tag.objects.all(), 
+	# 	required=False, 
+	# 	widget=ModelSelect2MultipleWidget(model=tag, queryset=tag.objects.all(), search_fields=['title__icontains'])
+	# )
 
 class EditForm(forms.ModelForm):
 	class Meta:
