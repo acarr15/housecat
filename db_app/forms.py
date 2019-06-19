@@ -20,6 +20,9 @@ class MediaForm(forms.ModelForm):
 
 class TagsForm(forms.Form):
 	tags = forms.ModelMultipleChoiceField(widget=FilteredSelectMultiple(verbose_name="filtered_tags", is_stacked=False), queryset=tag.objects.all(), required=False)
+	class Media:
+		css = {'all':('/admin/css/widgets.css', 'admin/css/overrides.css'),}
+		js = ('/admin/jquery.js','/admin/jsi18n/')
 	# tags = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget(), queryset=tag.objects.all(), required=False)
 	# def __init__(self, *args, **kwargs):
 	# 	super(TagsForm, self).__init__(*args, **kwargs)
