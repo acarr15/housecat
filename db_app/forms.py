@@ -1,5 +1,6 @@
 from django import forms
 from .models import artist, media, tag, region
+from django_select2.forms import Select2MultipleWidget
 
 class ArtistForm(forms.ModelForm):
 	class Meta:
@@ -17,7 +18,7 @@ class MediaForm(forms.ModelForm):
 			self.fields[key].required = False
 
 class TagsForm(forms.Form):
-	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
+	tags = forms.ModelMultipleChoiceField(widget=Select2MultipleWidget, queryset=tag.objects.all(), required=False)
 
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
