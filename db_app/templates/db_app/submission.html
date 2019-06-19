@@ -1,6 +1,7 @@
 {% extends "db_app/base.html" %}
 {% load crispy_forms_tags %}
 {% block head %}
+<!-- Start head block -->
 	{{ form.media.css }}
 {% endblock head %}
 {% block content %}
@@ -71,14 +72,8 @@
 		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
 
-
-<!-- <script type="text/javascript">
-	$(document).ready(function() {
-		$('.js-example-basic-multiple selectmultiple form-control').select2();
-	});
-</script> -->	
-
 {% endblock content %}
 {% block js %}
+	<!-- Start js block -->
 	{{ form.media.js }}
 {% endblock js %}
