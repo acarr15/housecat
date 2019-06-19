@@ -1,9 +1,6 @@
 {% extends "db_app/base.html" %}
 {% load crispy_forms_tags %}
-{% block head %}
-<!-- Start head block -->
-	{{ form.media.css }}
-{% endblock head %}
+
 {% block content %}
 
 <h1>New Artist</h1>
@@ -73,7 +70,3 @@
 	</form>
 
 {% endblock content %}
-{% block js %}
-	<!-- Start js block -->
-	{{ form.media }}
-{% endblock js %}
