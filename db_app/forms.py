@@ -18,7 +18,7 @@ class MediaForm(forms.ModelForm):
 			self.fields[key].required = False
 
 class TagsForm(forms.Form):
-	tags = forms.ModelMultipleChoiceField(widget=ModelSelect2MultipleWidget(model=tag, search_fields=['title__icontains']), queryset=tag.objects.all(), required=False)
+	tags = forms.ModelMultipleChoiceField(widget=ModelSelect2MultipleWidget(model=tag, search_fields=['title__icontains'], queryset=tag.objects.all()), queryset=tag.objects.all(), required=False)
 
 	# def __init__(self, *args, **kwargs):
 	# 	super(TagsForm, self).__init__(*args, **kwargs)
