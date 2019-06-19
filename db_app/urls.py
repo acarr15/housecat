@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,5 +14,5 @@ urlpatterns = [
 	path('secure/<int:value>/', views.secure, name="secure"),
 	path('add_tag/', views.add_tag, name="add_tag"),
 	path('add_region', views.add_region, name="add_region"),
-	url(r'^select2/', include('django_select2.urls')),
+	re_path(r'^select2/', include('django_select2.urls'), name="select2"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
