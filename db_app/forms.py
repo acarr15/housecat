@@ -1,7 +1,7 @@
 from django import forms
 from .models import artist, media, tag, region
 from django_select2.forms import ModelSelect2MultipleWidget, Select2MultipleWidget
-from django.contrib.admin.widgets import FilteredMultipleSearch
+from django.contrib.admin.widgets import FilteredSelectMultiple
 
 class ArtistForm(forms.ModelForm):
 	class Meta:
