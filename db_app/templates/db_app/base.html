@@ -22,7 +22,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
     <!-- Select2 CDN -->
-    {{ form.media.css }}
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> -->
 
@@ -52,6 +51,7 @@
 		}
     </style>
 
+    {% block head %}{% endblock %}
     {% block style %}{% endblock %}
 	
 	<title>House Cat DB</title>
@@ -88,6 +88,6 @@
 	<div class="container-fluid p-4">
 		{% block content %}{% endblock %}
 	</div>
-    {{ form.media.js }}
+    {% block js %}{% endblock %}
 </body>
 </html>

@@ -1,5 +1,8 @@
 {% extends "db_app/base.html" %}
 {% load crispy_forms_tags %}
+{% block head %}
+	{{ form.media.css }}
+{% enblock head %}
 {% block content %}
 
 <h1>New Artist</h1>
@@ -68,7 +71,7 @@
 		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
 
-{{ form.media.js }}
+
 <!-- <script type="text/javascript">
 	$(document).ready(function() {
 		$('.js-example-basic-multiple selectmultiple form-control').select2();
@@ -76,3 +79,6 @@
 </script> -->	
 
 {% endblock content %}
+{% block js %}
+	{{ form.media.js }}
+{% endblock js %}
