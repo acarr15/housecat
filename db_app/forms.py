@@ -1,6 +1,5 @@
 from django import forms
 from .models import artist, media, tag, region
-from django_select2.forms import ModelSelect2MultipleWidget, Select2MultipleWidget
 
 class ArtistForm(forms.ModelForm):
 	class Meta:
@@ -19,11 +18,7 @@ class MediaForm(forms.ModelForm):
 
 class TagsForm(forms.Form):
 	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
-	# tags = forms.ModelMultipleChoiceField(
-	# 	queryset=tag.objects.all(), 
-	# 	required=False, 
-	# 	widget=ModelSelect2MultipleWidget(model=tag, queryset=tag.objects.all(), search_fields=['title__icontains'])
-	# )
+
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
 		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup'
