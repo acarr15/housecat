@@ -11,6 +11,7 @@ class ArtistForm(forms.ModelForm):
 		self.fields['region_id'].label = 'Region'
 		self.fields['region_id'].widget.attrs['class'] = 'selectpicker'
 		self.fields['region_id'].widget.attrs['data-live-search'] = 'true'
+		self.fields['region_id'].widget.attrs['data-size'] = '5'
 
 class MediaForm(forms.ModelForm):
 	class Meta:
@@ -29,6 +30,7 @@ class TagsForm(forms.Form):
 		super(TagsForm, self).__init__(*args, **kwargs)
 		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
+		self.fields['tags'].widget.attrs['data-size'] = '5'
 
 class EditForm(forms.ModelForm):
 	class Meta:
