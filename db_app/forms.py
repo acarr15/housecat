@@ -52,6 +52,13 @@ class SearchForm(forms.Form):
 	regions = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=region.objects.all(), required=False)
 	tags = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=tag.objects.all(), required=False)
 
+	def __init__(self, *args, **kwargs):
+		super(SearchForm, self).__init__(*args, **kwargs)
+		self.fields['regions'].widget.attrs['class'] = 'selectpicker dropup'
+		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup'
+		self.fields['regions'].widget.attrs['data-live-search'] = 'true'
+		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
+
 
 
 	
