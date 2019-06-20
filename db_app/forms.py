@@ -6,6 +6,12 @@ class ArtistForm(forms.ModelForm):
 		model = artist
 		fields = ('name', 'genre', 'region_id', 'hometown', 'email')
 
+	 def __init__(self, *args, **kwargs):
+	 	super(ArtistForm, self).__init__(*args, **kwargs)
+	 	self.fields['region_id'].label = 'Region'
+	 	self.fields['region_id'].widget.attrs['class'] = 'selectpicker'
+	 	self.fields['region_id'].widget.attrs['data-live-search'] = 'true'
+
 class MediaForm(forms.ModelForm):
 	class Meta:
 		model = media
