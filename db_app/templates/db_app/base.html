@@ -89,6 +89,9 @@
     {% block js %}{% endblock %}
     <script>
         $.fn.selectpicker.Constructor.BootstrapVersion = '4';
+        $(document).ready(function() {
+            $('.selectpicker').selectpicker();
+        });
     </script>
 </body>
 </html>
