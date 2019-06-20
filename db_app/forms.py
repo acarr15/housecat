@@ -26,7 +26,7 @@ class TagsForm(forms.Form):
 	# )
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
-		self.fields['tags'].attrs['class'] = 'selectmultiple'
+		self.fields['tags'].widget.attrs['class'] = 'selectmultiple'
 
 class EditForm(forms.ModelForm):
 	class Meta:
