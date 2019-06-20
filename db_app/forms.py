@@ -28,7 +28,7 @@ class TagsForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
-		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup'
+		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup show-tick'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['data-size'] = '10'
 
@@ -54,8 +54,8 @@ class SearchForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(SearchForm, self).__init__(*args, **kwargs)
-		self.fields['regions'].widget.attrs['class'] = 'selectpicker dropup'
-		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup'
+		self.fields['regions'].widget.attrs['class'] = 'selectpicker dropup show-tick'
+		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup show-tick'
 		self.fields['regions'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
 
