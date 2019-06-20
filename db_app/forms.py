@@ -59,6 +59,8 @@ class SearchForm(forms.Form):
 		self.fields['tags'].widget.attrs['class'] = 'selectpicker'
 		self.fields['regions'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
+		self.fields['regions'].widget.attrs['data-actions-box'] = 'true'
+		self.fields['tags'].widget.attrs['data-actions-box'] = 'true'
 
 
 
