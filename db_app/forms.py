@@ -1,7 +1,6 @@
 from django import forms
 from .models import artist, media, tag, region
 from django_select2.forms import ModelSelect2MultipleWidget, Select2MultipleWidget
-from django.contrib.admin.widgets import FilteredSelectMultiple
 
 class ArtistForm(forms.ModelForm):
 	class Meta:
@@ -25,6 +24,9 @@ class TagsForm(forms.Form):
 	# 	required=False, 
 	# 	widget=ModelSelect2MultipleWidget(model=tag, queryset=tag.objects.all(), search_fields=['title__icontains'])
 	# )
+	def __init__(self, *args, **kwargs):
+		super(TagsForm, self).__init__(*args, **kwargs)
+		self.fields['tags'].attrs['class'] = 'selectmultiple'
 
 class EditForm(forms.ModelForm):
 	class Meta:
