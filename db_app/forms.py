@@ -29,6 +29,8 @@ class TagsForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
 		self.fields['tags'].widget.attrs['class'] = 'selectpicker show-tick'
+		self.fields['tags'].widget.attrs['data-iconBase'] = 'fa'
+		self.fields['tags'].widget.attrs['data-tickIcon'] = 'fa-check'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['data-size'] = '10'
 
