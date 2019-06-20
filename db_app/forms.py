@@ -28,10 +28,9 @@ class TagsForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
-		self.fields['tags'].widget.attrs['class'] = 'selectpicker show-tick'
-		self.fields['tags'].widget.attrs['data-iconBase'] = 'fontawesome'
-		self.fields['tags'].widget.attrs['data-tickIcon'] = 'fa-check'
+		self.fields['tags'].widget.attrs['class'] = 'selectpicker'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
+		self.fields['tags'].widget.attrs['data-actions-box'] = 'true'
 		self.fields['tags'].widget.attrs['data-size'] = '10'
 
 class EditForm(forms.ModelForm):
@@ -56,8 +55,8 @@ class SearchForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(SearchForm, self).__init__(*args, **kwargs)
-		self.fields['regions'].widget.attrs['class'] = 'selectpicker dropup show-tick'
-		self.fields['tags'].widget.attrs['class'] = 'selectpicker dropup show-tick'
+		self.fields['regions'].widget.attrs['class'] = 'selectpicker'
+		self.fields['tags'].widget.attrs['class'] = 'selectpicker'
 		self.fields['regions'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
 
