@@ -44,6 +44,7 @@ class EditForm(forms.ModelForm):
 		self.fields['region_id'].label = 'Region'
 		self.fields['region_id'].empty_label = 'Choose a region...'
 		self.fields['region_id'].widget.attrs['class'] = 'selectpicker'
+		self.fields['region_id'].widget.attrs['data-live-search'] = 'true'
 
 class TagForm(forms.ModelForm):
 	class Meta:
