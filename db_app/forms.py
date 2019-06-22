@@ -63,7 +63,7 @@ class SearchForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(SearchForm, self).__init__(*args, **kwargs)
-		self.fields['name'].label = None
+		self.fields['name'].label = ''
 		self.fields['name'].placeholder = 'Enter an artist or band name...'
 		
 		self.fields['regions'].label = None
