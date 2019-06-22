@@ -63,16 +63,17 @@ class SearchForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(SearchForm, self).__init__(*args, **kwargs)
-		self.fields['name'].label = ''
-		self.fields['name'].placeholder = 'Enter an artist or band name...'
+
+		for key in self.fields:
+			self.fields[key].label = ''
+
+		self.fields['name'].widget.attrs['placeholder'] = 'Enter an artist or band name...'
 		
-		self.fields['regions'].label = None
 		self.fields['regions'].empty_label = 'Select a region...'
 		self.fields['regions'].widget.attrs['class'] = 'selectpicker'
 		self.fields['regions'].widget.attrs['data-live-search'] = 'true'
 		self.fields['regions'].widget.attrs['data-actions-box'] = 'true'
 
-		self.fields['tags'].label = None
 		self.fields['tags'].empty_label = 'Select tags...'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['class'] = 'selectpicker'
