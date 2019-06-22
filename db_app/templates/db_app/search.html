@@ -1,9 +1,19 @@
 {% extends "db_app/base.html" %}
 {% load crispy_forms_tags %}
+{% block style %}
+
+	<style type="text/css">
+		.search-bar{
+			margin-left: auto;
+			margin-right: atuo;
+		}
+	</style>
+
+{% endblock style %}
 {% block content %}
 
 	<h2>Search</h2>
-	<form method="GET" target="_blank" class="needs-validation" novalidate>
+	<form method="GET" target="_blank" class="search-bar needs-validation" novalidate>
 		{% csrf_token %}
 		<div class="form-row">
 			<div class="col">
