@@ -16,17 +16,17 @@
 	<form method="GET" target="_blank" class="needs-validation" novalidate>
 		{% csrf_token %}
 		<div class="form-row justify-content-md-center">
-			<div class="col-md-auto">
+			<div class="col-2">
 				{{ form.name|as_crispy_field }}
 			</div>
-			<div class="col-md-auto">
+			<div class="col-3">
 				{{ form.tags|as_crispy_field }}
 			</div>
-			<div class="col-md-auto">
+			<div class="col-2">
 				{{ form.regions|as_crispy_field }}
 			</div>
-			<div class="col-md-auto">
-				<button type="submit" name="submit" class="btn btn-success mb-2">Search</button>
+			<div class="col-1">
+				<button type="submit" name="submit" class="btn btn-success">Search</button>
 			</div>
 		</div>
 	</form>
