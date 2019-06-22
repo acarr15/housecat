@@ -69,7 +69,7 @@ class SearchForm(forms.Form):
 
 		self.fields['name'].widget.attrs['placeholder'] = 'Enter an artist or band name...'
 		
-		self.fields['regions'].empty_label = 'Select a region...'
+		self.fields['regions'].title = 'Select a region...'
 		self.fields['regions'].widget.attrs['class'] = 'selectpicker'
 		self.fields['regions'].widget.attrs['data-live-search'] = 'true'
 		self.fields['regions'].widget.attrs['data-actions-box'] = 'true'
