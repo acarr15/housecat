@@ -13,9 +13,9 @@
 {% block content %}
 
 	<h2>Search</h2>
-	<form method="GET" target="_blank" class="search-bar needs-validation" novalidate>
+	<form method="GET" target="_blank" class="needs-validation" novalidate>
 		{% csrf_token %}
-		<div class="form-row">
+		<div class="form-row justify-content-md-center">
 			<div class="col">
 				{{ form.name|as_crispy_field }}
 			</div>
