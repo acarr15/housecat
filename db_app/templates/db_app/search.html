@@ -5,8 +5,20 @@
 	<h2>Search</h2>
 	<form method="GET" target="_blank" class="needs-validation" novalidate>
 		{% csrf_token %}
-		{{ form|crispy }}
-		<button type="submit" name="submit" class="btn btn-success">Search</button>
+		<div class="form-row">
+			<div class="col">
+				{{ form.name|as_crispy_field }}
+			</div>
+			<div class="col">
+				{{ form.tags|as_crispy_field }}
+			</div>
+			<div class="col">
+				{{ form.regions|as_crispy_field }}
+			</div>
+			<div class="col">
+				<button type="submit" name="submit" class="btn btn-success">Search</button>
+			</div>
+		</div>
 	</form>
 
 {% endblock content %}
