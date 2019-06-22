@@ -14,20 +14,20 @@
 
 	<form method="GET" target="_blank" class="needs-validation" novalidate>
 		{% csrf_token %}
-		<!-- <div class="form-row justify-content-md-center"> -->
-			<div class="col-2">
+		<div class="form-row justify-content-md-center">
+			<div class="col-md-2">
 				{{ form.name|as_crispy_field }}
 			</div>
-			<div class="col-3">
+			<div class="col-md-3">
 				{{ form.tags|as_crispy_field }}
 			</div>
-			<div class="col-2">
+			<div class="col-md-2">
 				{{ form.regions|as_crispy_field }}
 			</div>
-			<div class="col-1">
+			<div class="col-md-1">
 				<button type="submit" name="submit" class="btn btn-success">Search</button>
 			</div>
-		<!-- </div> -->
+		</div>
 	</form>
 
 {% endblock content %}
