@@ -28,6 +28,7 @@ class TagsForm(forms.Form):
 
 	def __init__(self, *args, **kwargs):
 		super(TagsForm, self).__init__(*args, **kwargs)
+		self.fields['tags'].widget.attrs['title'] = 'Select tag(s)...'
 		self.fields['tags'].widget.attrs['class'] = 'selectpicker'
 		self.fields['tags'].widget.attrs['data-live-search'] = 'true'
 		self.fields['tags'].widget.attrs['data-actions-box'] = 'true'
