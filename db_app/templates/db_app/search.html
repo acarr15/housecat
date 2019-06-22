@@ -1,7 +1,7 @@
-<!-- {% extends "db_app/base.html" %} -->
-{% extends "db_app/results.html" %}
+{% extends "db_app/base.html" %}
+
 {% load crispy_forms_tags %}
-<!-- {% block style %}
+{% block style %}
 
 	<style type="text/css">
 		.search-bar{
@@ -11,8 +11,8 @@
 	</style>
 
 {% endblock style %}
-{% block content %} -->
-{% block search-bar %}
+{% block content %}
+
 	<form method="GET" target="_blank" class="needs-validation" novalidate>
 		{% csrf_token %}
 		<div class="form-row justify-content-md-center">
@@ -30,5 +30,5 @@
 			</div>
 		</div>
 	</form>
-{% endblock search-bar %}
-<!-- {% endblock content %} -->
+
+{% endblock content %}
