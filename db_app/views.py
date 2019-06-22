@@ -34,9 +34,34 @@ def search(request):
 		form = SearchForm()
 	return render(request, "db_app/search.html", {"form":form})
 
+# def results(request):
+# 	artistData = media.objects.select_related('artist').filter(artist__status=APPROVED)
+# 	return render(request, "db_app/results.html", {"artistData": artistData})
+
 def results(request):
-	artistData = media.objects.select_related('artist').filter(artist__status=APPROVED)
-	return render(request, "db_app/results.html", {"artistData": artistData})
+	artistData = media.objects.select_related('artist').filter(artist__status=status.objects.get(id=APPROVED))
+
+	if 'submit' in request.GET:
+		form = SearchForm(request.GET)
+		if form.is_valid():
+			# Tag PKs
+			tags = request.GET.getlist("tags") 
+			# Region PKs
+			regions = request.GET.getlist("regions")
+			# Name Value
+			name = request.GET.get("name")
+			if regions:
+				artistData = artistData.filter(artist__region_id__in=list(region.objects.filter(pk__in=regions)))
+			if tags:
+				artist_tags = artist_tag.objects.values_list("artist", flat=True).filter(tag__in=list(tag.objects.filter(pk__in=tags)))
+				artistData = artistData.filter(artist__id__in=list(set(artist_tags)))
+			if name:
+				artistData = artistData.filter(artist__name__icontains=name)
+
+			return render(request, "db_app/results.html", {"artistData": artistData, "form":form})
+	else:
+		form = SearchForm()
+	return render(request, "db_app/results.html", {"artistData": artistData, "form":form})
 
 @login_required
 def secure(request, value=PENDING):
