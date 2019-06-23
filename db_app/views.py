@@ -51,8 +51,9 @@ def edit_artist(request, pk):
 			edit.save()
 			return redirect("secure_default")
 	else:
+		artist_form, media_form, tags_form = ArtistForm(), MediaForm(), TagsForm()
 		form = EditForm(initial={"genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
-	return render(request, "db_app/edit_artist.html", {"edit":edit, "form":form})
+	return render(request, "db_app/edit_artist.html", {"edit":edit, "form":form, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
 
 @login_required
 def remove_artist(request, pk):
