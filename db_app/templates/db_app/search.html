@@ -1,34 +1,19 @@
-<!-- {% extends "db_app/base.html" %}
 
-{% load crispy_forms_tags %}
-{% block style %}
 
-	<style type="text/css">
-		.search-bar{
-			margin-left: auto;
-			margin-right: atuo;
-		}
-	</style>
-
-{% endblock style %}
-{% block content %} -->
-
-	<form method="GET" target="_blank" class="needs-validation" novalidate>
-		{% csrf_token %}
-		<div class="form-row justify-content-md-center">
-			<div class="col-md-2">
-				{{ form.name|as_crispy_field }}
-			</div>
-			<div class="col-md-3">
-				{{ form.tags|as_crispy_field }}
-			</div>
-			<div class="col-md-2">
-				{{ form.regions|as_crispy_field }}
-			</div>
-			<div class="col-md-1">
-				<button type="submit" name="submit" class="btn btn-success">Search</button>
-			</div>
+<form method="GET" target="_blank" class="needs-validation" novalidate>
+	{% csrf_token %}
+	<div class="form-row justify-content-md-center">
+		<div class="col-md-2">
+			{{ form.name|as_crispy_field }}
 		</div>
-	</form>
-
-<!-- {% endblock content %} -->
+		<div class="col-md-3">
+			{{ form.tags|as_crispy_field }}
+		</div>
+		<div class="col-md-2">
+			{{ form.regions|as_crispy_field }}
+		</div>
+		<div class="col-md-1">
+			<button type="submit" name="submit" class="btn btn-success">Search</button>
+		</div>
+	</div>
+</form>
