@@ -52,13 +52,14 @@ def edit_artist(request, pk):
 
 			new_tags = request.POST.getlist("tags")
 			old_tags = list(old_tags)
-			diff_tags = list(set(new_tags) - set(old_tags))
-			for value in diff_tags:
-				if value in new_tags:
+
+			for value in new_tags:
+				if value not in old_tags:
 					new_entry = artist_tag(artist=edit_artist, tag=tag.objects.get(id=value))
 					new_entry.save()
-				else:
-					old_entry = artist_tag.objects.filter(artist=edit_artist).filter(tag=value)
+			for value in old_tags:
+				if value not in new_tags:
+					old_entry = artist_tag.objects.filter(artist=edit_artist).filter(tag=tag.objects.get(id=value))
 					old_entry.delete()
 
 			return redirect("secure_default")
