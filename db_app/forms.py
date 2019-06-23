@@ -11,7 +11,6 @@ class ArtistForm(forms.ModelForm):
 		self.fields['region_id'].label = 'Region'
 		self.fields['region_id'].empty_label = 'Select a region'
 		self.fields['region_id'].widget.attrs['class'] = 'selectpicker'
-		self.fields['region_id'].widget.attrs['title'] = 'Choose a region...'
 		self.fields['region_id'].widget.attrs['data-live-search'] = 'true'
 
 class MediaForm(forms.ModelForm):
