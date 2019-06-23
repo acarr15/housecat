@@ -4,7 +4,7 @@
 
 {% block content %}
 
-	<div class="container">
+	<!-- <div class="container"> -->
 		<ul class="">
 			<li><a class="purp" href="{% url 'secure' value=1 %}">Approved</a></li>
 			<li>|</li>
@@ -18,7 +18,7 @@
 			<li>|</li>
 			<li><a class="purp" href="{% url 'submission' %}">Add Artist</a></li>
 		</ul>
-	</div>
+	<!-- </div> -->
 	<br>
 	{% for artist in artists %}
 	<div class="container">
