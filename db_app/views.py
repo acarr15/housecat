@@ -66,7 +66,7 @@ def edit_artist(request, pk):
 		tags_form = TagsForm(initial={"tags": old_tags})
 		media_form = MediaForm(initial={"facebook": edit_media.facebook, "instagram": edit_media.instagram, 'twitter': edit_media.twitter, 'bandcamp': edit_media.bandcamp, 'soundcloud': edit_media.soundcloud, 'tumblr': edit_media.tumblr, 'patreon': edit_media.patreon, 'website': edit_media.website})
 		artist_form = ArtistForm(initial={"name": edit_artist.name, "hometown": edit_artist.hometown, "email":edit_artist.email, "genre":edit_artist.genre, "status": edit_artist.status, "region_id": edit_artist.region_id})
-	return render(request, "db_app/edit_artist.html", {"artist": edit_artist, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
+	return render(request, "db_app/edit_artist.html", {"edit_artist": edit_artist, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
 
 @login_required
 def remove_artist(request, pk):
