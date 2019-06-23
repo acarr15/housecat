@@ -45,6 +45,8 @@ def edit_artist(request, pk):
 	edit_media = get_object_or_404(media, pk=pk)
 	edit_tags = artist_tag.objects.values_list('tag', flat=True).filter(artist=edit)
 	if request.method == "POST":
+		artist_form, media_form, tags_form = ArtistForm(request.POST), MediaForm(request.POST), TagsForm(request.POST)
+		# if artist_form.is_valid() and media_form.is_valid() and tags_form.is_valid():
 		form = EditForm(request.POST)
 		if form.is_valid():
 			edit.genre = request.POST.get("genre")

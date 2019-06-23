@@ -61,5 +61,10 @@
 				{{ tags_form.tags|as_crispy_field }}
 			</div>
 		</div>
+		{% if edit %}
+		<button type="submit" class="btn btn-success">Save Changes</button>
+		<a class="btn btn-secondary" href="{% url 'secure_default' %}">Cancel</a>
+		{% else %}
 		<button type="submit" class="btn btn-success">Submit</button>
+		{% endif %}
 	</form>
