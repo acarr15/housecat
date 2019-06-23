@@ -50,24 +50,11 @@ def edit_artist(request, pk):
 			artist_form.save()
 			media_form.save()
 
-			if tags_form.has_changed():
-
-				new_tags = request.POST.getlist("tags")
-				old_tags = list(old_tags)
-
-				for value in new_tags:
-					if value not in old_tags:
-						new_entry = artist_tag(artist=edit_artist, tag=tag.objects.get(id=value))
-						new_entry.save()
-				
-				for value in old_tags:
-					if value not in new_tags:
-						old_entry = artist_tag.objects.filter(artist=edit_artist).filter(tag=tag.objects.get(id=value))
-						old_entry.delete()
+			tags = request.POST.getlist("tags")
 
 			return redirect("secure_default")
 	else:
-		tags_form = TagsForm(initial=old_tags)
+		tags_form = TagsForm(initial={"tags": old_tags})
 		media_form = MediaForm(initial={"facebook": edit_media.facebook, "instagram": edit_media.instagram, 'twitter': edit_media.twitter, 'bandcamp': edit_media.bandcamp, 'soundcloud': edit_media.soundcloud, 'tumblr': edit_media.tumblr, 'patreon': edit_media.patreon, 'website': edit_media.website})
 		artist_form = ArtistForm(initial={"name": edit_artist.name, "hometown": edit_artist.hometown, "email":edit_artist.email, "genre":edit_artist.genre, "status": edit_artist.status, "region_id": edit_artist.region_id})
 	return render(request, "db_app/edit_artist.html", {"edit_artist": edit_artist, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
