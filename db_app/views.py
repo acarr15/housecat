@@ -42,6 +42,7 @@ def secure(request, value=PENDING):
 @login_required
 def edit_artist(request, pk):
 	edit = get_object_or_404(artist, pk=pk)
+	edit_media = get_object_or_404(media, pk=pk)
 	if request.method == "POST":
 		form = EditForm(request.POST)
 		if form.is_valid():
@@ -51,8 +52,12 @@ def edit_artist(request, pk):
 			edit.save()
 			return redirect("secure_default")
 	else:
-		media_form, tags_form = MediaForm(), TagsForm()
-		artist_form = ArtistForm(initial={"name": edit.name, "email":edit.email, "genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
+		media_data, artist_data = {}, {}
+		for field in media._meta.get_fields():
+			media_data.update(field=edit_media.field)
+		tags_form = TagsForm()
+		media_form = MediaForm(initial=media_data)
+		artist_form = ArtistForm(initial={"name": edit.name, "hometown": edit.hometown, "email":edit.email, "genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
 		form = EditForm(initial={"genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
 	return render(request, "db_app/edit_artist.html", {"edit":edit, "form":form, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
 
