@@ -61,10 +61,10 @@
 				{{ tags_form.tags|as_crispy_field }}
 			</div>
 		</div>
-		{% if artist %}
-		{% if artist.status.id == 3 %}
+		{% if edit_artist %}
+		{% if edit_artist.status.id == 3 %}
 		<br>
-		<a class="btn btn-danger" href="{% url 'remove_artist' pk=artist.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+		<a class="btn btn-danger" href="{% url 'remove_artist' pk=edit_artist.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
 		{% endif %}
 		<button type="submit" class="btn btn-success">Save Changes</button>
 		<a class="btn btn-secondary" href="{% url 'secure_default' %}">Cancel</a>

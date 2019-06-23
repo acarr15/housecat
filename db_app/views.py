@@ -41,11 +41,11 @@ def secure(request, value=PENDING):
 
 @login_required
 def edit_artist(request, pk):
-	artist = get_object_or_404(artist, pk=pk)
-	media = get_object_or_404(media, pk=pk)
-	old_tags = artist_tag.objects.values_list('tag', flat=True).filter(artist=artist)
+	edit_artist = get_object_or_404(artist, pk=pk)
+	edit_media = get_object_or_404(media, pk=pk)
+	old_tags = artist_tag.objects.values_list('tag', flat=True).filter(artist=edit_artist)
 	if request.method == "POST":
-		artist_form, media_form, tags_form = ArtistForm(request.POST, instance=artist), MediaForm(request.POST, instance=media), TagsForm(request.POST)
+		artist_form, media_form, tags_form = ArtistForm(request.POST, instance=edit_artist), MediaForm(request.POST, instance=edit_media), TagsForm(request.POST)
 		if artist_form.is_valid() and media_form.is_valid() and tags_form.is_valid():
 			artist_form.save()
 			media_form.save()
@@ -55,18 +55,18 @@ def edit_artist(request, pk):
 			diff_tags = list(set(new_tags) - set(old_tags))
 			for value in diff_tags:
 				if value in new_tags:
-					new_entry = artist_tag(artist=artist, tag=tag.objects.get(id=value))
+					new_entry = artist_tag(artist=edit_artist, tag=tag.objects.get(id=value))
 					new_entry.save()
 				else:
-					old_entry = artist_tag.objects.filter(artist=artist).filter(tag=value)
+					old_entry = artist_tag.objects.filter(artist=edit_artist).filter(tag=value)
 					old_entry.delete()
 
 			return redirect("secure_default")
 	else:
 		tags_form = TagsForm(initial={"tags": old_tags})
-		media_form = MediaForm(initial={"facebook": media.facebook, "instagram": media.instagram, 'twitter': media.twitter, 'bandcamp': media.bandcamp, 'soundcloud': media.soundcloud, 'tumblr': media.tumblr, 'patreon': media.patreon, 'website': media.website})
-		artist_form = ArtistForm(initial={"name": artist.name, "hometown": artist.hometown, "email":artist.email, "genre":artist.genre, "status": artist.status, "region_id": artist.region_id})
-	return render(request, "db_app/edit_artist.html", {"artist":artist, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
+		media_form = MediaForm(initial={"facebook": edit_media.facebook, "instagram": edit_media.instagram, 'twitter': edit_media.twitter, 'bandcamp': edit_media.bandcamp, 'soundcloud': edit_media.soundcloud, 'tumblr': edit_media.tumblr, 'patreon': edit_media.patreon, 'website': edit_media.website})
+		artist_form = ArtistForm(initial={"name": edit_artist.name, "hometown": edit_artist.hometown, "email":edit_artist.email, "genre":edit_artist.genre, "status": edit_artist.status, "region_id": edit_artist.region_id})
+	return render(request, "db_app/edit_artist.html", {"artist": edit_artist, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
 
 @login_required
 def remove_artist(request, pk):

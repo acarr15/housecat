@@ -3,9 +3,9 @@
 {% block content %}
 
 	<div>
-		<h3>{{ artist.name }}: {{ artist.status }}</h3>
-		<p>Hometown: {{ artist.hometown }}</p>
-		<p>{{ artist.email }}</p>
+		<h3>{{ edit_artist.name }}: {{ edit_artist.status }}</h3>
+		<p>Hometown: {{ edit_artist.hometown }}</p>
+		<p>{{ edit_artist.email }}</p>
 	</div>
 
 	{% include "db_app/submit_form.html" %}
