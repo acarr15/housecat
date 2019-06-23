@@ -54,7 +54,7 @@ def edit_artist(request, pk):
 	else:
 		media_data, artist_data = {}, {}
 		for field in media._meta.get_fields():
-			media_data[field]= getattr(edit_media, field)
+			media_data[field]= getattr(edit_media, str(field))
 		tags_form = TagsForm()
 		media_form = MediaForm(initial=media_data)
 		artist_form = ArtistForm(initial={"name": edit.name, "hometown": edit.hometown, "email":edit.email, "genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
