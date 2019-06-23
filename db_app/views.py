@@ -50,17 +50,19 @@ def edit_artist(request, pk):
 			artist_form.save()
 			media_form.save()
 
-			new_tags = request.POST.getlist("tags")
-			old_tags = list(old_tags)
+			if tags_form.has_changed():
+				new_tags = request.POST.getlist("tags")
+				old_tags = list(old_tags)
 
-			for value in new_tags:
-				if value not in old_tags:
-					new_entry = artist_tag(artist=edit_artist, tag=tag.objects.get(id=value))
-					new_entry.save()
-			for value in old_tags:
-				if value not in new_tags:
-					old_entry = artist_tag.objects.filter(artist=edit_artist).filter(tag=tag.objects.get(id=value))
-					old_entry.delete()
+				for value in new_tags:
+					if value not in old_tags:
+						new_entry = artist_tag(artist=edit_artist, tag=tag.objects.get(id=value))
+						new_entry.save()
+				
+				for value in old_tags:
+					if value not in new_tags:
+						old_entry = artist_tag.objects.filter(artist=edit_artist).filter(tag=tag.objects.get(id=value))
+						old_entry.delete()
 
 			return redirect("secure_default")
 	else:
