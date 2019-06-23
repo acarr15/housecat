@@ -57,6 +57,15 @@ class RegionForm(forms.ModelForm):
 		model = region
 		fields = ('region', )
 
+class StatusForm(forms.ModelForm):
+	class Meta:
+		model = status
+		fields = ('desc', )
+
+	def __init__(self, *args, **kwargs):
+		super(StatusForm, self).__init__(*args, **kwargs)
+		self.fields['desc'].label = 'Status'
+
 class SearchForm(forms.Form):
 	name = forms.CharField(required=False)
 	regions = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple, queryset=region.objects.all(), required=False)
