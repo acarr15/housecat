@@ -1,20 +1,11 @@
 {% extends "db_app/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
-{% block style %}
 
-<style type="text/css">
-	.purp{
-		color: purple;
-	}
-
-</style>
-
-{% endblock style %}
 {% block content %}
 
-	<div class="container justify-content-md-center">
-		<ul class="text-center">
+	<div class="container">
+		<ul class="">
 			<li><a class="purp" href="{% url 'secure' value=1 %}">Approved</a></li>
 			<li>|</li>
 			<li><a class="purp" href="{% url 'secure' value=2 %}">Pending</a></li>
