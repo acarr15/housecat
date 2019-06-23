@@ -82,7 +82,9 @@
 	</nav>
 	<hr class="mt-0">
 	<div class="container-fluid p-4">
+        {% block search %}{% endblock %}
 		{% block content %}{% endblock %}
+        }
 	</div>
     {% block js %}{% endblock %}
     <script>

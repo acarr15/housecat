@@ -9,9 +9,13 @@
 
 {% endblock style %}
 
+{% block search %}
+	{% include "db_app/search.html" %}
+{% endblock search %}
+
 {% block content %}
 
-	<form method="GET" class="needs-validation" novalidate>
+	<!-- <form method="GET" class="needs-validation" novalidate>
 		{% csrf_token %}
 		<div class="form-row justify-content-md-center">
 			<div class="col-md-2">
@@ -27,7 +31,7 @@
 				<button type="submit" name="submit" class="btn btn-success">Search</button>
 			</div>
 		</div>
-	</form>
+	</form> -->
 
 	<br>
 	{% for artist in artistData %}
