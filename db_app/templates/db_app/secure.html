@@ -15,17 +15,11 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add<span class="caret"></span></a>
 	            <ul class="dropdown-menu">
-	              <li class="dropdown-item"><a href="#">Artist</a></li>
-	              <li class="dropdown-item"><a href="#">Region</a></li>
-	              <li class="dropdown-item"><a href="#">Tag</a></li>
+	              <li class="dropdown-item"><a href="{% url 'submission' %}">Artist</a></li>
+	              <li class="dropdown-item"><a href="{% url 'add_region' %}">Region</a></li>
+	              <li class="dropdown-item"><a href="{% url 'add_tag' %}">Tag</a></li>
 	            </ul>
 			</li>
-			<!-- <br>
-			<li><a class="purp" href="{% url 'add_tag' %}">Add Tag</a></li>
-			<li>|</li>
-			<li><a class="purp" href="{% url 'add_region' %}">Add Region</a></li>
-			<li>|</li>
-			<li><a class="purp" href="{% url 'submission' %}">Add Artist</a></li> -->
 		</ul>
 	</div>
 	<br>
