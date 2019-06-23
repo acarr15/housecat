@@ -73,16 +73,8 @@ class SearchForm(forms.Form):
 				self.fields[key].widget.attrs['class'] = 'selectpicker'
 
 		self.fields['name'].widget.attrs['placeholder'] = 'Search by name...'
-		
-		self.fields['regions'].widget.attrs['title'] = 'Select a region...'
-		# self.fields['regions'].widget.attrs['class'] = 'selectpicker'
-		# self.fields['regions'].widget.attrs['data-live-search'] = 'true'
-		# self.fields['regions'].widget.attrs['data-actions-box'] = 'true'
-
+		self.fields['regions'].widget.attrs['title'] = 'Select region(s)...'
 		self.fields['tags'].widget.attrs['title'] = 'Select tag(s)...'
-		# self.fields['tags'].widget.attrs['data-live-search'] = 'true'
-		# self.fields['tags'].widget.attrs['class'] = 'selectpicker'
-		# self.fields['tags'].widget.attrs['data-actions-box'] = 'true'
 
 
 
