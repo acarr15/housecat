@@ -43,7 +43,7 @@ class EditForm(forms.ModelForm):
 		super(EditForm, self).__init__(*args, **kwargs)
 		self.fields['status'].widget.attrs['class'] = 'selectpicker'
 		self.fields['region_id'].label = 'Region'
-		self.fields['region_id'].widget.attrs['title'] = 'Choose a region...'
+		self.fields['region_id'].empty_label = 'Choose a region...'
 		self.fields['region_id'].widget.attrs['class'] = 'selectpicker'
 		self.fields['region_id'].widget.attrs['data-live-search'] = 'true'
 
