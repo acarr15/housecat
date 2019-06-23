@@ -1,5 +1,5 @@
 from django import forms
-from .models import artist, media, tag, region
+from .models import artist, media, tag, region, status
 
 class ArtistForm(forms.ModelForm):
 	class Meta:
