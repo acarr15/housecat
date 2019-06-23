@@ -45,12 +45,13 @@ def edit_artist(request, pk):
 	edit_media = get_object_or_404(media, pk=pk)
 	old_tags = artist_tag.objects.values_list('tag', flat=True).filter(artist=edit_artist)
 	if request.method == "POST":
-		artist_form, media_form, tags_form = ArtistForm(request.POST, instance=edit_artist), MediaForm(request.POST, instance=edit_media), TagsForm(request.POST)
+		artist_form, media_form, tags_form = ArtistForm(request.POST, instance=edit_artist), MediaForm(request.POST, instance=edit_media), TagsForm(request.POST, initial={"tags": old_tags})
 		if artist_form.is_valid() and media_form.is_valid() and tags_form.is_valid():
 			artist_form.save()
 			media_form.save()
 
 			if tags_form.has_changed():
+
 				new_tags = request.POST.getlist("tags")
 				old_tags = list(old_tags)
 
@@ -66,7 +67,7 @@ def edit_artist(request, pk):
 
 			return redirect("secure_default")
 	else:
-		tags_form = TagsForm(initial={"tags": old_tags})
+		tags_form = TagsForm(initial=old_tags)
 		media_form = MediaForm(initial={"facebook": edit_media.facebook, "instagram": edit_media.instagram, 'twitter': edit_media.twitter, 'bandcamp': edit_media.bandcamp, 'soundcloud': edit_media.soundcloud, 'tumblr': edit_media.tumblr, 'patreon': edit_media.patreon, 'website': edit_media.website})
 		artist_form = ArtistForm(initial={"name": edit_artist.name, "hometown": edit_artist.hometown, "email":edit_artist.email, "genre":edit_artist.genre, "status": edit_artist.status, "region_id": edit_artist.region_id})
 	return render(request, "db_app/edit_artist.html", {"edit_artist": edit_artist, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
