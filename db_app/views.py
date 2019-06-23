@@ -43,7 +43,7 @@ def secure(request, value=PENDING):
 def edit_artist(request, pk):
 	edit = get_object_or_404(artist, pk=pk)
 	edit_media = get_object_or_404(media, pk=pk)
-	edit_tags = artist_tag.objects.filter(artist=edit)
+	edit_tags = artist_tag.objects.values('tag').filter(artist=edit)
 	if request.method == "POST":
 		form = EditForm(request.POST)
 		if form.is_valid():
