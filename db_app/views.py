@@ -53,10 +53,9 @@ def edit_artist(request, pk):
 			return redirect("secure_default")
 	else:
 		media_data, artist_data = {}, {}
-		for field in media._meta.get_fields():
-			media_data[field]= edit_media[field]
+
 		tags_form = TagsForm()
-		media_form = MediaForm(initial=media_data)
+		media_form = MediaForm(initial={"facebook": edit_media.facebook, "instagram": edit_media.instagram, 'twitter': edit_media.twitter, 'bandcamp':edit_media.bandcamp, 'soundcloud':edit_media.soundcloud, 'tumblr':edit_media.tumblr, 'patreon':edit_media.patreon, 'website':edit_media.website})
 		artist_form = ArtistForm(initial={"name": edit.name, "hometown": edit.hometown, "email":edit.email, "genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
 		form = EditForm(initial={"genre":edit.genre, "status":edit.status, "region_id": edit.region_id})
 	return render(request, "db_app/edit_artist.html", {"edit":edit, "form":form, "artist_form": artist_form, "media_form": media_form, "tags_form": tags_form})
