@@ -29,7 +29,7 @@
                 <div class="col-sm-6 offset-sm-3 text-center">
                     <h1 class="display-4">Bootstrap 4</h1>
                     <div class="info-form">
-                        <form action="" class="form-inlin justify-content-center">
+                        <form method="post" action="{% url 'login' %}" class="form-inlin justify-content-center">
                             <div class="form-group">
                                 <label class="sr-only">Username</label>
                                 <input type="text" class="form-control" name="username">
@@ -42,11 +42,6 @@
                             <input type="hidden" name="next" value="{{ next }}" />
                         </form>
                     </div>
-                    <br>
-
-                    <a href="#nav-main" class="btn btn-outline-secondary btn-sm" role="button">
-                        More
-                    </a>
                 </div>
             </div>
         </div>
