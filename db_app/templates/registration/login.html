@@ -6,44 +6,23 @@
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <!-- <form class="needs-validation" method="post" action="{% url 'login' %}" novalidate>
-        {% csrf_token %}
-        <div class="form-row justify-content-md-center">
-            <div class="col-md-3">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username">
-            </div>
-            <div class="col-md-3">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password">
-            </div>
-            <div class="col-md-1">
-                <button type="submit" value="login" name="submit" class="btn btn-success">Login</button>
-                <input type="hidden" name="next" value="{{ next }}" />
-            </div>
-        </div>
-    </form> -->
-    <div id="cover-caption">
-        <div id="container" class="container">
-            <div class="row text-white">
-                <div class="col-sm-6 offset-sm-3 text-center">
-                    <h1 class="display-4">Bootstrap 4</h1>
-                    <div class="info-form">
-                        <form method="post" action="{% url 'login' %}" class="form-inlin justify-content-center">
-                            <div class="form-group">
-                                <label class="sr-only">Username</label>
-                                <input type="text" class="form-control" name="username">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only">Password</label>
-                                <input type="password" class="form-control" name="password">
-                            </div>
-                            <button value="login" type="submit" class="btn btn-success ">okay, go!</button>
-                            <input type="hidden" name="next" value="{{ next }}" />
-                        </form>
+    <div id="container" class="container">
+
+        <div class="col-sm-6 offset-sm-3 text-center">
+                <form method="post" action="{% url 'login' %}" class="form-inlin justify-content-center">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="sr-only">Username</label>
+                        <input type="text" class="form-control" name="username">
                     </div>
-                </div>
-            </div>
+                    <div class="form-group">
+                        <label class="sr-only">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <button value="login" type="submit" class="btn btn-success ">Login!</button>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </form>
         </div>
+
     </div>
 {% endblock %}
