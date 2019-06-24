@@ -51,7 +51,9 @@ def edit_artist(request, pk):
 			media_form.save()
 
 			tags = request.POST.getlist("tags")
-			print("Printing tags... ", end='')
+			print("Printing old tags... ", end='')
+			print(list(old_tags))
+			print("Printing new tags... ", end='')
 			print(tags)
 
 			return redirect("secure_default")
