@@ -50,7 +50,7 @@ def edit_artist(request, pk):
 			artist_form.save()
 			media_form.save()
 
-			new_tags = map(int, request.POST.getlist("tags"))
+			new_tags = list(map(int, request.POST.getlist("tags")))
 			print("Printing old tags... ", end='')
 			print(list(old_tags))
 			print("Printing new tags... ", end='')
