@@ -11,21 +11,24 @@
         <div class="form-row justify-content-md-center">
             <div class="col-md-2">
                 <div class="row">
-                    {{ form.username.label_tag }}
-                    {{ form.username }}
+                    <!-- {{ form.username.label_tag }}
+                    {{ form.username }} -->
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username">
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="row">
-                    {{ form.password.label_tag }}
-                    {{ form.password }}
+                    <!-- {{ form.password.label_tag }}
+                    {{ form.password }} -->
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
                 </div>
             </div>
         </div>
         <div class="form-row justify-content-md-center">
             <div class="col-md-3">
                 <button type="submit" value="login" name="submit" class="btn btn-success">Login</button>
-                <!-- <input type="submit" value="login" /> -->
                 <input type="hidden" name="next" value="{{ next }}" />
             </div>
         </div>
