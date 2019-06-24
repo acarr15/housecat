@@ -10,12 +10,12 @@
         {% csrf_token %}
         <div class="form-row justify-content-md-center">
             <div class="col-md-3">
-                {{ form.username|as_crispy_form }}
+                {{ form.username|as_crispy_field }}
             </div>
         </div>
         <div class="form-row justify-content-md-center">
             <div class="col-md-3">
-                {{ form.password|as_crispy_form }}
+                {{ form.password|as_crispy_field }}
             </div>
         </div>
         <!-- <table>
