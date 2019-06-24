@@ -6,6 +6,11 @@
 			<div class="col">
 				{{ artist_form.name|as_crispy_field }}
 			</div>
+			{% if edit_artist %}
+			<div class="col">
+				{{ artist_form.status|as_crispy_field }}
+			</div>
+			{% endif %}
 		</div>
 		<div class="form-row">
 			<div class="col">

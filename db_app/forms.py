@@ -4,7 +4,7 @@ from .models import artist, media, tag, region, status
 class ArtistForm(forms.ModelForm):
 	class Meta:
 		model = artist
-		fields = ('name', 'genre', 'region_id', 'hometown', 'email')
+		fields = ('name', 'genre', 'region_id', 'hometown', 'email', 'status')
 
 	def __init__(self, *args, **kwargs):
 		super(ArtistForm, self).__init__(*args, **kwargs)

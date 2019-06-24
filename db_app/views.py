@@ -52,10 +52,6 @@ def edit_artist(request, pk):
 
 			new_tags = list(map(int, request.POST.getlist("tags")))
 			old_tags = list(old_tags)
-			print("Printing old tags... ", end='')
-			print(old_tags)
-			print("Printing new tags... ", end='')
-			print(new_tags)
 
 			for value in old_tags:
 				if value not in new_tags:
