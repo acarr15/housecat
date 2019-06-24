@@ -8,9 +8,9 @@
 
     <form class="needs-validation" method="post" action="{% url 'login' %}" novalidate>
         {% csrf_token %}
-        <div class="justify-content-md-center">
+        <div class="form-row justify-content-md-center">
             <div class="col">
-                <div class="row">
+                <div class="form-row">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username">
                 </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="justify-content-md-center">
+        <div class="form-row justify-content-md-center">
             <div class="col">
                 <button type="submit" value="login" name="submit" class="btn btn-success">Login</button>
                 <input type="hidden" name="next" value="{{ next }}" />
