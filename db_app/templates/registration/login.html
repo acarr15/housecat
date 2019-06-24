@@ -6,28 +6,24 @@
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <form class="form-horizontal" method="post" action="{% url 'login' %}">
+    <form class="needs-validation" method="post" action="{% url 'login' %}" novalidate>
         {% csrf_token %}
-        <div class="form-row justify-content-md-center">
-            <div class="col-md-2">
+        <div class="justify-content-md-center">
+            <div class="col">
                 <div class="row">
-                    <!-- {{ form.username.label_tag }}
-                    {{ form.username }} -->
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username">
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col">
                 <div class="row">
-                    <!-- {{ form.password.label_tag }}
-                    {{ form.password }} -->
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password">
                 </div>
             </div>
         </div>
-        <div class="form-row justify-content-md-center">
-            <div class="col-md-3">
+        <div class="justify-content-md-center">
+            <div class="col">
                 <button type="submit" value="login" name="submit" class="btn btn-success">Login</button>
                 <input type="hidden" name="next" value="{{ next }}" />
             </div>
