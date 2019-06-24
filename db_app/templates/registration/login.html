@@ -8,20 +8,24 @@
 
     <div id="container" class="container">
 
-        <div class="col-sm-6 offset-sm-3 text-center">
-                <form method="post" action="{% url 'login' %}" class="form-inlin justify-content-center">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label class="sr-only">Username</label>
-                        <input type="text" class="form-control" name="username">
-                    </div>
-                    <div class="form-group">
-                        <label class="sr-only">Password</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-                    <button value="login" type="submit" class="btn btn-success ">Login!</button>
-                    <input type="hidden" name="next" value="{{ next }}" />
-                </form>
+        <div class="container">
+            <div class="container">
+                <div class="col-sm-6 offset-sm-3 text-center">
+                    <form method="post" action="{% url 'login' %}" class="form-inlin justify-content-center">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="sr-only">Username</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only">Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button value="login" type="submit" class="btn btn-success ">Login!</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                </div>
+            </div>
         </div>
 
     </div>
