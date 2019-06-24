@@ -152,3 +152,4 @@ SITE_ID=1
 
 # Sessions
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 60 # session age in seconds
