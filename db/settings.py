@@ -149,3 +149,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 SITE_ID=1
+
+# Sessions
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
