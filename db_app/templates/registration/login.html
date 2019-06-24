@@ -9,16 +9,16 @@
     <form class="form-horizontal" method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <div class="form-row justify-content-md-center">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 {{ form.username.label_tag }}
                 {{ form.username }}
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 {{ form.password.label_tag }}
                 {{ form.password }}
             </div>
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
         </div>
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
     </form>
 {% endblock %}
