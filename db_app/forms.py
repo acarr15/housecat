@@ -64,6 +64,4 @@ class SearchForm(forms.Form):
 		self.fields['regions'].widget.attrs['title'] = 'Select region(s)...'
 		self.fields['tags'].widget.attrs['title'] = 'Select tag(s)...'
 
-
-
 	
