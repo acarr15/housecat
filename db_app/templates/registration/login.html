@@ -1,22 +1,33 @@
 {% extends "db_app/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-        <table>
+    <form class="needs-validation" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-row justify-content-md-center">
+            <div class="col-md-3">
+                {{ form.username|as_crispy_form }}
+            </div>
+        </div>
+        <div class="form-row justify-content-md-center">
+            <div class="col-md-3">
+                {{ form.password|as_crispy_form }}
+            </div>
+        </div>
+        <!-- <table>
         <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
+            <td>{{ form.username.label_tag|as_crispy_form }}</td>
+            <td>{{ form.username|as_crispy_form }}</td>
         </tr>
         <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
+            <td>{{ form.password.label_tag|as_crispy_form }}</td>
+            <td>{{ form.password|as_crispy_form }}</td>
         </tr>
-        </table>
+        </table> -->
 
         <input type="submit" value="login" />
         <input type="hidden" name="next" value="{{ next }}" />

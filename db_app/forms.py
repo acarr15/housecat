@@ -34,18 +34,6 @@ class TagsForm(forms.Form):
 		self.fields['tags'].widget.attrs['data-actions-box'] = 'true'
 		self.fields['tags'].widget.attrs['data-size'] = '10'
 
-class EditForm(forms.ModelForm):
-	class Meta:
-		model = artist
-		fields = ('genre', 'status', 'region_id')
-
-	def __init__(self, *args, **kwargs):
-		super(EditForm, self).__init__(*args, **kwargs)
-		self.fields['status'].widget.attrs['class'] = 'selectpicker'
-		self.fields['region_id'].label = 'Region'
-		self.fields['region_id'].empty_label = 'Choose a region...'
-		self.fields['region_id'].widget.attrs['class'] = 'selectpicker'
-		self.fields['region_id'].widget.attrs['data-live-search'] = 'true'
 
 class TagForm(forms.ModelForm):
 	class Meta:
@@ -56,15 +44,6 @@ class RegionForm(forms.ModelForm):
 	class Meta:
 		model = region
 		fields = ('region', )
-
-class StatusForm(forms.ModelForm):
-	class Meta:
-		model = status
-		fields = ('desc', )
-
-	def __init__(self, *args, **kwargs):
-		super(StatusForm, self).__init__(*args, **kwargs)
-		self.fields['desc'].label = 'Status'
 
 class SearchForm(forms.Form):
 	name = forms.CharField(required=False)

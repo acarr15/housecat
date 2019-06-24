@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import artist, artist_tag, tag, status, region, media
-from .forms import ArtistForm, MediaForm, TagsForm, EditForm, TagForm, RegionForm, SearchForm
+from .forms import ArtistForm, MediaForm, TagsForm, TagForm, RegionForm, SearchForm
 from django.contrib.auth.decorators import login_required
 
 APPROVED, PENDING, DENIED = 1, 2, 3
