@@ -5,8 +5,10 @@
 
 <style type="text/css">
 	#logo{
-		text-align: center;
-		vertical-align: middle;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 	}
 </style>
 
@@ -14,9 +16,8 @@
 {% block content %}
 
 <!-- <div class="container-fluid"> -->
-	<div id="logo" class="logo container-fluid h-100">
-	       <!-- <img src="{% static 'db_app/full.jpg' %}"> -->
-	       <span class="align-middle">House Cat</span>
+	<div class="logo container-fluid h-100">
+	       <img id="logo" src="{% static 'db_app/full.jpg' %}">
 	</div>
 <!-- </div> -->
 
