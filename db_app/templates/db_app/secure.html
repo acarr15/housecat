@@ -36,13 +36,20 @@
 		</div>
 	
 		<ul>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/facebook.png' %}" height="30" width="30"></a></li>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/instagram.png' %}" height="30" width="30"></a></li>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/tumblr.png' %}" height="30" width="30"></a></li>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/soundcloud.png' %}" height="30" width="30"></a></li>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/twitter.png' %}" height="30" width="30"></a></li>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/patreon.png' %}" height="30" width="30"></a></li>
-			<li><a target="_blank" href=""><img src="{% static 'db_app/bandcamp.png' %}" height="30" width="30"></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/facebook.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.facebook }}"><i class="fab fa-facebook-f fa-2x"></i></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/instagram.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.instagram }}"><i class="fab fa-instagram fa-2x"></i></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/tumblr.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.tumblr }}"><i class="fab fa-tumblr fa-2x"></i></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/soundcloud.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.soundcloud }}"><i class="fab fa-soundcloud fa-2x"></i></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/twitter.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.twitter }}"><i class="fab fa-twitter fa-2x"></i></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/patreon.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.patreon }}"><i class="fab fa-patreon fa-2x"></i></a></li>
+			<!-- <li><a target="_blank" href=""><img src="{% static 'db_app/bandcamp.png' %}" height="30" width="30"></a></li> -->
+			<li><a target="_blank" href="{{ artist.bandcamp }}"><i class="fab fa-bandcamp fa-2x"></i></a></li>
 		</ul>
 		<hr>
 	</div>
