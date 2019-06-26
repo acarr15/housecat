@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # DEBUG = os.environ.get("DEBUG_VALUE")
 
-ALLOWED_HOSTS = ['house-cat.herokuapp.com']
+ALLOWED_HOSTS = ['house-cat.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -83,14 +83,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    # 'local': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'house',
-    #     'USER': 'harold',
-    #     'PASSWORD': '',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # },
 }
 
 
