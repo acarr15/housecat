@@ -62,10 +62,12 @@
 	<title>House Cat DB</title>
 </head>
 <body>
-    {% include "db_app/navbar.html" %}
-	<div class="main container-fluid">
-        {% block search %}{% endblock %}
-        {% block content %}{% endblock %}
+    <div class="main">
+        {% include "db_app/navbar.html" %}
+        <div class="container-fluid">
+            {% block search %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
     </div>
     
     {% block js %}{% endblock %}
