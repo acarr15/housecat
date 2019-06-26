@@ -59,7 +59,7 @@
 	
 	<title>House Cat DB</title>
 </head>
-<body>
+<body class="h-100">
 	<div class="container-fluid">
         {% include "db_app/navbar.html" %}
     </div>
@@ -72,11 +72,7 @@
     {% block js %}{% endblock %}
     <script>
         $.fn.selectpicker.Constructor.BootstrapVersion = '4';
-        $(document).ready(function() {
-            $('.selectpicker').selectpicker({
-                iconBase: 'fontawesome',
-                tickIcon: 'fa fa-check'
-            });
+        $(document).ready();
         });
     </script>
 </body>
