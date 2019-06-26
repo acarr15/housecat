@@ -28,7 +28,8 @@
 		<h3>
 			{{ artist.name }} -- {{ artist.hometown }}, {{ artist.region_id }}
 			<a href="{% url 'edit_artist' pk=artist.pk %}">
-				<img src="{% static 'db_app/edit.png' %}" height="30" width="30">
+				<!-- <img src="{% static 'db_app/edit.png' %}" height="30" width="30"> -->
+				<i class="far fa-edit"></i>
 			</a>
 		</h3>
 		<div class="container">
