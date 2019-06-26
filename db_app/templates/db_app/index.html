@@ -4,15 +4,18 @@
 {% block style %}
 
 <style type="text/css">
-
+	#logo{
+		text-align: center;
+		vertical-align: middle;
+	}
 </style>
 
 {% endblock style %}
 {% block content %}
 
 <!-- <div class="container-fluid"> -->
-	<div class="container-fluid text-center h-100 align-middle">
-	       <img class="img-fluid align-middle" src="{% static 'db_app/full.jpg' %}">
+	<div class="logo container-fluid h-100">
+	       <img id="logo" src="{% static 'db_app/full.jpg' %}">
 	</div>
 <!-- </div> -->
 
