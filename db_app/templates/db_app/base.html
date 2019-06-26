@@ -34,7 +34,6 @@
 			/*font-family: 'Amatic SC';*/
 			/*font-family: 'Cabin Sketch';*/
 			font-family: 'Montserrat';
-            height: 100%;
 		}
 		p{
 			font-size: 20px;
@@ -52,7 +51,9 @@
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
-        
+        .main {
+            height: 100vh;
+        }
     </style>
 
     {% block style %}{% endblock %}
@@ -61,13 +62,14 @@
 	<title>House Cat DB</title>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="main container-fluid">
         {% include "db_app/navbar.html" %}
+        {% block search %}{% endblock %}
+        {% block content %}{% endblock %}
     </div>
 	
     <div class="container-fluid h-100">
-        {% block search %}{% endblock %}
-		{% block content %}{% endblock %}
+        
 	</div>
     
     {% block js %}{% endblock %}
