@@ -67,15 +67,17 @@
 			</div>
 		</div>
 		<div class="form-row">
-			{% if edit_artist %}
-			{% if edit_artist.status.id == 3 %}
-			<br>
-			<a class="btn btn-danger" href="{% url 'remove_artist' pk=edit_artist.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
-			{% endif %}
-			<button type="submit" class="btn btn-success">Save Changes</button>
-			<a class="btn btn-secondary" href="{% url 'secure_default' %}">Cancel</a>
-			{% else %}
-			<button type="submit" class="btn btn-success">Submit</button>
-			{% endif %}
+			<div class="col text-center">
+				{% if edit_artist %}
+				{% if edit_artist.status.id == 3 %}
+				<br>
+				<a class="btn btn-danger" href="{% url 'remove_artist' pk=edit_artist.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
+				{% endif %}
+				<button type="submit" class="btn btn-success">Save Changes</button>
+				<a class="btn btn-secondary" href="{% url 'secure_default' %}">Cancel</a>
+				{% else %}
+				<button type="submit" class="btn btn-success">Submit</button>
+				{% endif %}
+			</div>
 		</div>
 	</form>
