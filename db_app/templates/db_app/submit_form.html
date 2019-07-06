@@ -70,7 +70,6 @@
 			<div class="col text-center">
 				{% if edit_artist %}
 				{% if edit_artist.status.id == 3 %}
-				<br>
 				<a class="btn btn-danger" href="{% url 'remove_artist' pk=edit_artist.pk %}"><span class="glyphicon glyphicon-remove"></span>Delete</a>
 				{% endif %}
 				<button type="submit" class="btn btn-success">Save Changes</button>
