@@ -1,6 +1,6 @@
 {% load crispy_forms_tags %}
 
-<form method="GET" class="needs-validation" novalidate>
+<form method="GET" class="needs-validation mt-2" novalidate>
 	{% csrf_token %}
 	<div class="form-row justify-content-md-center">
 		<div class="col-md-2">
@@ -12,7 +12,7 @@
 		<div class="col-md-2">
 			{{ form.regions|as_crispy_field }}
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-1 text-center">
 			<button type="submit" name="submit" class="btn btn-success">Search</button>
 		</div>
 	</div>
